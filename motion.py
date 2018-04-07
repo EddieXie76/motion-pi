@@ -12,7 +12,7 @@ Start = 19
 Pause = 26
 Led = 17
 
-Status = GPIO.LOW
+Status = GPIO.HIGH
 Brightness = 150
 Min = 10
 Max = 690
@@ -92,10 +92,10 @@ while True:
         if abs(Brightness-NewBrightness) > 5:
             Brightness = NewBrightness
             changeBrightness()
-        if GPIO.input(Start) == GPIO.LOW and Status == GPIO.LOW:
+        if GPIO.input(Start) == GPIO.HIGH and Status == GPIO.LOW:
             Status = GPIO.HIGH         
             changeStatus()
-        if GPIO.input(Pause) == GPIO.LOW and Status == GPIO.HIGH:
+        if GPIO.input(Pause) == GPIO.HIGH and Status == GPIO.HIGH:
             Status = GPIO.LOW
             changeStatus()
         time.sleep(0.1)
